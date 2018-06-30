@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POM", "POM\POM.csproj", "{9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POM.Tests", "POM.Tests\POM.Tests.csproj", "{D06DE7B3-ECCB-4D17-BC90-C561CA8B35B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRunner", "TestRunner\TestRunner.csproj", "{C67ABE9B-202E-46EA-AB36-D4C5482A284E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{D06DE7B3-ECCB-4D17-BC90-C561CA8B35B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D06DE7B3-ECCB-4D17-BC90-C561CA8B35B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D06DE7B3-ECCB-4D17-BC90-C561CA8B35B9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C67ABE9B-202E-46EA-AB36-D4C5482A284E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C67ABE9B-202E-46EA-AB36-D4C5482A284E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C67ABE9B-202E-46EA-AB36-D4C5482A284E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C67ABE9B-202E-46EA-AB36-D4C5482A284E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
