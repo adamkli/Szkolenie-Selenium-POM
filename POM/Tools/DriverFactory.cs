@@ -18,26 +18,38 @@ namespace POM.Tools
             IWebDriver _webDriver;
 
             var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            Directory.SetCurrentDirectory(path);            
+            Directory.SetCurrentDirectory(path);
+            bool chromeReady = false;
+            bool ffReady = false;
+            bool edgeReady = false;
+            bool ieReady = false;
 
             switch (browserType.ToLower())
             {
                 case "chrome":
-                    new DriverManager().SetUpDriver(new ChromeConfig());
+                    if (!chromeReady)
+                        new DriverManager().SetUpDriver(new ChromeConfig());
+                    chromeReady = true;
                     _webDriver = new ChromeDriver();
                     break;
                 case "firefox":
                 case "ff":
-                    new DriverManager().SetUpDriver(new FirefoxConfig());
+                    if (!ffReady)
+                        new DriverManager().SetUpDriver(new FirefoxConfig());
+                    ffReady = true;
                     _webDriver = new FirefoxDriver();
                     break;
                 case "edge":
-                    new DriverManager().SetUpDriver(new EdgeConfig());
+                    if (!edgeReady)
+                        new DriverManager().SetUpDriver(new EdgeConfig());
+                    edgeReady = true;
                     _webDriver = new EdgeDriver();
                     break;
                 case "internetexplorer":
                 case "ie":
-                    new DriverManager().SetUpDriver(new InternetExplorerConfig());
+                    if (!ieReady)
+                        new DriverManager().SetUpDriver(new InternetExplorerConfig());
+                    ieReady = true;
                     _webDriver = new InternetExplorerDriver();
                     break;
                 default:
