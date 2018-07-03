@@ -9,7 +9,6 @@ namespace POM.Tests
 {
     [TestFixture]
     [Category("SmokeTest")]
-    [Parallelizable]
     class MainPageTests : TestWith<MainPageObject>
     {
         [Test]

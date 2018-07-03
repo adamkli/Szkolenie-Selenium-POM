@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoginPageObject.cs" />
     <Compile Include="MainPageObject.cs" />
     <Compile Include="PageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
