@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using NUnit.Framework.Interfaces;
+using POM.Tests.Tools;
 using System;
 using System.IO;
 
@@ -15,7 +16,7 @@ namespace POM.Tests
         [SetUp]
         public void DriverOpen()
         {
-            Page = PageBase.CreateInstance<TPage>("chrome", "http://the-internet.herokuapp.com/");
+            Page = PageBase.CreateInstance<TPage>(GlobalSettings.BrowserType, GlobalSettings.BaseURL);
         }
 
         [TearDown]
