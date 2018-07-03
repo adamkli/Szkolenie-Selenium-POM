@@ -1,1 +1,0 @@
-..\packages\NUnit.ConsoleRunner.3.8.0\tools\nunit3-console.exe --noheader --work=Reports --result=TestResult.xml bin\Debug\POM.Tests.dll

@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POM", "POM\POM.csproj", "{9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POM.Tests", "POM.Tests\POM.Tests.csproj", "{D06DE7B3-ECCB-4D17-BC90-C561CA8B35B9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F6C19804-BDFC-49CA-A425-F94A20800FD3}"
+	ProjectSection(SolutionItems) = preProject
+		1RunTests.bat = 1RunTests.bat
+		2GenerateReport.bat = 2GenerateReport.bat
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

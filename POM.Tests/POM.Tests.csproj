@@ -59,8 +59,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="1RunTests.bat" />
-    <None Include="2GenerateRaport.bat" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
