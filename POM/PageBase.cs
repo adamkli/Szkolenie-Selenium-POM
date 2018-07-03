@@ -1,21 +1,26 @@
 ﻿using OpenQA.Selenium;
+using POM.Tools;
 using SeleniumExtras.PageObjects;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace POM
 {
     public class PageBase
     {
-        protected string baseURL = "http://the-internet.herokuapp.com/";
+        protected string baseURL;
         protected IWebDriver driver;
 
         protected virtual string GetRelativeURL() => "";
         protected virtual string GetURL() => new Uri(new Uri(baseURL), GetRelativeURL()).ToString(); //baseURL + GetRelativeURL();
-
+        public static TPage CreateInstance<TPage>(string browserType, string baseUrl) where TPage : PageBase
+        {
+            var driver = DriverFactory.GetDriver(browserType);
+            var page = (TPage)Activator.CreateInstance(typeof(TPage), driver);
+            page.baseURL = baseUrl;
+            driver.Manage().Window.Maximize();
+            page.Open();
+            return page;
+        }
         public PageBase(IWebDriver driver)
         {
             this.driver = driver;
@@ -23,9 +28,16 @@ namespace POM
             //PageFactory.InitElements(driver, this);
         }
 
-        public void Open()
+        public void Open(string url = null)
         {
-            driver.Navigate().GoToUrl(GetURL());
+            if (url == null)
+                url = GetURL();
+            driver.Navigate().GoToUrl(url);
+        }
+        public void Quit()
+        {
+            driver?.Quit();
+            driver = null;
         }
         public void SaveScreenshot(string screenshotsFolderPath)
         {
@@ -36,7 +48,7 @@ namespace POM
             }
             catch (Exception e)
             {
-                throw new Exception($"Problem while saving screenshot:[{screenshotsFolderPath}]\nEXCEPTION:{e.Message}", e);
+                //throw new Exception($"Problem while saving screenshot:[{screenshotsFolderPath}]\nEXCEPTION:{e.Message}", e);
             }
         }
     }

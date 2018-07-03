@@ -9,6 +9,7 @@ namespace POM.Tests
 {
     [TestFixture]
     [Category("SmokeTest")]
+    [Parallelizable]
     class MainPageTests : TestWith<MainPageObject> //TestBase
     {
 
@@ -17,7 +18,7 @@ namespace POM.Tests
         {
             //var page = new MainPageObject(Driver);
             //page.Open();
-            Assert.That(Page.HeaderTitle, Is.EqualTo("Welcome to the-internet1"));
+            Assert.That(Page.HeaderTitle, Is.EqualTo("Welcome to the-internet"));
         }
     }
 }
