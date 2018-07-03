@@ -23,12 +23,13 @@ namespace POM
         {
             return headerTitleElement.Text;
         }
-        public List<string> GetLinkTitles()
+        public IEnumerable<string> GetLinkTitles()
         {
-            List<string> result = new List<string>();
-            foreach (IWebElement link in subPageLinkElements)
-                result.Add(link.Text);
-            return result;
+            //List<string> result = new List<string>();
+            //foreach (IWebElement link in subPageLinkElements)
+            //    result.Add(link.Text);
+            //return result;
+            return subPageLinkElements.Select(el => el.Text);
         }
     }
 }

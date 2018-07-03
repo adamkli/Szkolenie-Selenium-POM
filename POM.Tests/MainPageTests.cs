@@ -10,14 +10,11 @@ namespace POM.Tests
     [TestFixture]
     [Category("SmokeTest")]
     [Parallelizable]
-    class MainPageTests : TestWith<MainPageObject> //TestBase
+    class MainPageTests : TestWith<MainPageObject>
     {
-
         [Test]
         public void ShouldHaveProperTitle()
         {
-            //var page = new MainPageObject(Driver);
-            //page.Open();
             Assert.That(Page.HeaderTitle, Is.EqualTo("Welcome to the-internet"));
         }
     }

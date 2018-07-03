@@ -12,15 +12,7 @@ namespace POM
 
         protected virtual string GetRelativeURL() => "";
         protected virtual string GetURL() => new Uri(new Uri(baseURL), GetRelativeURL()).ToString(); //baseURL + GetRelativeURL();
-        public static TPage CreateInstance<TPage>(string browserType, string baseUrl) where TPage : PageBase
-        {
-            var driver = DriverFactory.GetDriver(browserType);
-            var page = (TPage)Activator.CreateInstance(typeof(TPage), driver);
-            page.baseURL = baseUrl;
-            driver.Manage().Window.Maximize();
-            page.Open();
-            return page;
-        }
+
         public PageBase(IWebDriver driver)
         {
             this.driver = driver;
@@ -50,6 +42,15 @@ namespace POM
             {
                 //throw new Exception($"Problem while saving screenshot:[{screenshotsFolderPath}]\nEXCEPTION:{e.Message}", e);
             }
+        }
+        public static TPage CreateInstance<TPage>(string browserType, string baseUrl) where TPage : PageBase
+        {
+            var driver = DriverFactory.GetDriver(browserType);
+            var page = (TPage)Activator.CreateInstance(typeof(TPage), driver);
+            page.baseURL = baseUrl;
+            driver.Manage().Window.Maximize();
+            page.Open();
+            return page;
         }
     }
 }

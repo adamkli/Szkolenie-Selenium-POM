@@ -17,6 +17,7 @@ namespace POM.Tests
         public void DriverOpen()
         {
             Page = PageBase.CreateInstance<TPage>(GlobalSettings.BrowserType, GlobalSettings.BaseURL);
+            Console.WriteLine(typeof(TPage) +" opened with " + GlobalSettings.BrowserType);
         }
 
         [TearDown]
@@ -34,7 +35,10 @@ namespace POM.Tests
                     var fullPath = Path.GetFullPath(fileName);
                     Page.SaveScreenshot(fullPath);
                     if (File.Exists(fullPath))
+                    {
                         TestContext.AddTestAttachment(fullPath, msg);
+                        Console.WriteLine("Screenshot saved with name:" + fileName);
+                    }
                 }
             }
             catch { }
@@ -45,13 +49,11 @@ namespace POM.Tests
             catch { }
             Page = null;
         }
-
         private string GetSafeFilename(string filename)
         {
             var safePath = string.Join("_", filename.Split(Path.GetInvalidFileNameChars()));
             safePath = safePath.Replace("(", "").Replace(")", "").Replace(",", "");//for TeamCity artifact (should take into account TC documentation regarding allowed chars)
             return safePath;
         }
-
     }
 }
