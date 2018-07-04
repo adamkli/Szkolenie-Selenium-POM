@@ -16,13 +16,19 @@ namespace POM.Tests
         [OneTimeSetUp]
         public static void GlobalSetup()
         {
+            KillOrphantBrowsers();
             DriverFactory.SetUpDriver(GlobalSettings.BrowserType);
         }
 
         [OneTimeTearDown]
         public static void GlobalTeardown()
         {
-            // kill trashes
+            KillOrphantBrowsers();
+        }
+        private static void KillOrphantBrowsers()
+        {
+            if (GlobalSettings.BrowserType.ToLower().Contains("chrome"))
+                ProcKiller.KillOrphantDriversWithChildren("chromedriver");
         }
     }
 }
