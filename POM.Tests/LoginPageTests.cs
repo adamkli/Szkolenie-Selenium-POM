@@ -8,7 +8,7 @@ namespace POM.Tests
     class LoginPageTests : TestWith<LoginPageObject>
     {
         [Test, TestCaseSource("GetTestData")]
-        public void ValidUserShouldLogin(string userName, string password, string message)
+        public void UserWithPasswordAfterLoginShouldSee(string userName, string password, string message)
         {
             Page.Login(userName, password);
             Assert.That(Page.FlashMessage.Contains(message));
