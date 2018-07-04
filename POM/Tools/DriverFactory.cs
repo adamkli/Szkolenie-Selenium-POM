@@ -13,11 +13,6 @@ namespace POM.Tools
 {
     public class DriverFactory
     {
-        static bool chromeReady = false;
-        static bool ffReady = false;
-        static bool edgeReady = false;
-        static bool ieReady = false;
-
         public static void SetUpDriver(string browserType)
         {
             var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -25,34 +20,18 @@ namespace POM.Tools
             switch (browserType.ToLower())
             {
                 case "chrome":
-                    if (!chromeReady)
-                    {
-                        chromeReady = true;
-                        new DriverManager().SetUpDriver(new ChromeConfig());
-                    }
+                    new DriverManager().SetUpDriver(new ChromeConfig());
                     break;
                 case "firefox":
                 case "ff":
-                    if (!ffReady)
-                    {
-                        ffReady = true;
-                        new DriverManager().SetUpDriver(new FirefoxConfig());
-                    }
+                    new DriverManager().SetUpDriver(new FirefoxConfig());
                     break;
                 case "edge":
-                    if (!edgeReady)
-                    {
-                        edgeReady = true;
-                        new DriverManager().SetUpDriver(new EdgeConfig());
-                    }
+                    new DriverManager().SetUpDriver(new EdgeConfig());
                     break;
                 case "internetexplorer":
                 case "ie":
-                    if (!ieReady)
-                    {
-                        ieReady = true;
-                        new DriverManager().SetUpDriver(new InternetExplorerConfig());
-                    }
+                    new DriverManager().SetUpDriver(new InternetExplorerConfig());
                     break;
                 default:
                     throw new Exception("Requested browser tyype [" + browserType + "] not defined in DriverFactory");
@@ -62,44 +41,20 @@ namespace POM.Tools
         {
             IWebDriver _webDriver;
 
-            var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            Directory.SetCurrentDirectory(path);
-
-
             switch (browserType.ToLower())
             {
                 case "chrome":
-                    if (!chromeReady)
-                    {
-                        chromeReady = true;
-                        //new DriverManager().SetUpDriver(new ChromeConfig());
-                    }
                     _webDriver = new ChromeDriver();
                     break;
                 case "firefox":
                 case "ff":
-                    if (!ffReady)
-                    {
-                        ffReady = true;
-                        //new DriverManager().SetUpDriver(new FirefoxConfig());
-                    }
                     _webDriver = new FirefoxDriver();
                     break;
                 case "edge":
-                    if (!edgeReady)
-                    {
-                        edgeReady = true;
-                        //new DriverManager().SetUpDriver(new EdgeConfig());
-                    }
                     _webDriver = new EdgeDriver();
                     break;
                 case "internetexplorer":
                 case "ie":
-                    if (!ieReady)
-                    {
-                        ieReady = true;
-                        //new DriverManager().SetUpDriver(new InternetExplorerConfig());
-                    }
                     _webDriver = new InternetExplorerDriver();
                     break;
                 default:
