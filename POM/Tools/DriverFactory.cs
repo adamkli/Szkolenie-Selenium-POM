@@ -28,28 +28,36 @@ namespace POM.Tools
             {
                 case "chrome":
                     if (!chromeReady)
+                    {
+                        chromeReady = true;
                         new DriverManager().SetUpDriver(new ChromeConfig());
-                    chromeReady = true;
+                    }
                     _webDriver = new ChromeDriver();
                     break;
                 case "firefox":
                 case "ff":
                     if (!ffReady)
+                    {
+                        ffReady = true;
                         new DriverManager().SetUpDriver(new FirefoxConfig());
-                    ffReady = true;
+                    }
                     _webDriver = new FirefoxDriver();
                     break;
                 case "edge":
                     if (!edgeReady)
+                    {
+                        edgeReady = true;
                         new DriverManager().SetUpDriver(new EdgeConfig());
-                    edgeReady = true;
+                    }
                     _webDriver = new EdgeDriver();
                     break;
                 case "internetexplorer":
                 case "ie":
                     if (!ieReady)
+                    {
+                        ieReady = true;
                         new DriverManager().SetUpDriver(new InternetExplorerConfig());
-                    ieReady = true;
+                    }
                     _webDriver = new InternetExplorerDriver();
                     break;
                 default:
