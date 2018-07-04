@@ -52,6 +52,7 @@
     <Compile Include="LoginPageTests.cs" />
     <Compile Include="MainPageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestsSetup.cs" />
     <Compile Include="Tools\FileUtils.cs" />
     <Compile Include="Tools\TestWith.cs" />
     <Compile Include="Tools\GlobalSettings.cs" />
